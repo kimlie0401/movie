@@ -3,6 +3,7 @@ import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
+import { StatusBar } from "react-native";
 import TabNavigation from "./navigation/TabNavigation";
 import MainNavigation from "./navigation/MainNavigation";
 
@@ -23,7 +24,12 @@ export default class App extends Component {
   render() {
     const { loaded } = this.state;
     if (loaded) {
-      return <MainNavigation />;
+      return (
+        <>
+          <StatusBar barStyle="light-content" />
+          <MainNavigation />
+        </>
+      );
     } else {
       return (
         <AppLoading
